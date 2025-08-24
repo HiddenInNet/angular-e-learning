@@ -1,0 +1,16 @@
+<section class="w-full h-full flex justify-center items-center" id="search-bar-container">
+  <div class="w-full h-fit flex flex-row items-center" id="search-bar">
+    <input
+      class="w-full h-[40px] p-2 rounded-l-xl bg-neutral-100 text-gray-700 placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-[#1b73e8]"
+      placeholder="Buscar..."
+      type="text"
+      [formControl]="searchControl"
+    />
+
+    <span
+      class="w-fit h-[40px] justify-center items-center border-l-1 p-1.5 rounded-r-xl border-neutral-600 bg-neutral-100"
+    >
+      <mat-icon class="" style="color: #242424" svgIcon="default:search" />
+    </span>
+  </div>
+</section>

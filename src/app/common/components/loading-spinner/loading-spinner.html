@@ -1,0 +1,32 @@
+@if (ariaLabel) {
+  <span class="sr-only">{{ ariaLabel }}</span>
+}
+<svg
+  class="spinner"
+  role="status"
+  viewBox="0 0 50 50"
+  [attr.height]="size"
+  [attr.width]="size"
+  [style]="svgStyle"
+>
+  <!-- Track (fondo) -->
+  <circle
+    cx="25"
+    cy="25"
+    fill="none"
+    opacity="0.25"
+    r="20"
+    stroke-linecap="round"
+    [attr.stroke]="trackColor"
+    [attr.stroke-width]="strokeWidth"
+  />
+  <!-- Arco animado -->
+  <path
+    class="spinner-arc"
+    fill="none"
+    stroke-linecap="round"
+    [attr.d]="arcPath"
+    [attr.stroke]="color"
+    [attr.stroke-width]="strokeWidth"
+  />
+</svg>

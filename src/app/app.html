@@ -1,1 +1,23 @@
-<router-outlet />
+<div class="relative w-full h-screen bg-neutral-200 overflow-y-hidden">
+  <!-- Header fijo arriba -->
+  <div class="fixed top-0 left-0 right-0 h-20 z-50" id="header-container">
+    <app-desktop-header (sidebarToggled)="onSidebarToggled($event)" />
+  </div>
+
+  <!-- Nav fijo a la izquierda -->
+  <div class="fixed top-20 left-0 bottom-0 w-20 z-40" id="nav-container">
+    <app-desktop-nav />
+  </div>
+
+  <!-- Contenido principal compensando espacio -->
+  <main class="pt-20 pl-20 z-10">
+    <router-outlet />
+  </main>
+
+  <div class="absolute bottom-2 right-4 z-50">
+    <footer class="text-neutral-500 text-xs font-mono flex flex-col items-end select-none">
+      <h6>0.0.1</h6>
+      <h6>hiddeninnet</h6>
+    </footer>
+  </div>
+</div>

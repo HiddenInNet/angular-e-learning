@@ -1,0 +1,38 @@
+<nav
+  class="h-full flex flex-col p-4 text-white space-y-4 bg-neutral-100 border-r border-neutral-600 shadow-xl transition-all duration-300"
+  [class]="isExpanded ? 'w-60' : 'w-20'"
+>
+  <!-- Botón toggle -->
+  <button
+    class="w-fit flex items-center self-end p-3 border-neutral-600 hover:bg-neutral-200 rounded-xl focus:outline-none focus:ring-1 focus:ring-neutral-500 cursor-pointer"
+    type="button"
+    (click)="toggleNav()"
+  >
+    <mat-icon style="color: #262626" [svgIcon]="isExpanded ? 'nav:arrow-back' : 'nav:menu-bread'" />
+  </button>
+
+  <hr class="text-neutral-600" />
+
+  <!-- Tabs -->
+  @for (navTab of navTabs; let i = $index; track $index) {
+  <a
+    class="group relative flex items-center p-3 rounded-xl hover:bg-neutral-200 transition"
+    [class]="{ 'mt-auto': i === navTabs.length - 1 }"
+    [routerLink]="navTab.navigateTo"
+  >
+    <!-- Icono con badge -->
+    <mat-icon
+      matBadgeOverlap="true"
+      style="color: #262626; width: 22px; height: 22px"
+      [matBadge]="navTab.notifications"
+      [matBadgeHidden]="navTab.notifications === 0"
+      [svgIcon]="'nav:' + navTab.icon"
+    />
+
+    <!-- Texto -->
+    @if (isExpanded && showLabels) {
+    <span class="ml-4 text-neutral-900 text-sm font-medium text-nowrap"> {{ navTab.title }} </span>
+    }
+  </a>
+  }
+</nav>
