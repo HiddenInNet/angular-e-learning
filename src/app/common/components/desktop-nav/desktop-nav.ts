@@ -1,4 +1,4 @@
-import { Component, ElementRef, EventEmitter, HostListener, inject, Output } from '@angular/core';
+import { Component, ElementRef, HostListener, inject, output } from '@angular/core';
 import { MatIconModule } from '@angular/material/icon';
 import { MatBadgeModule } from '@angular/material/badge';
 import { RouterLink } from '@angular/router';
@@ -13,8 +13,7 @@ export class DesktopNav {
   private readonly eRef = inject(ElementRef);
   isExpanded = false;
   showLabels = false;
-  @Output()
-  readonly sidebarToggled = new EventEmitter<boolean>();
+  readonly sidebarToggled = output<boolean>();
 
   toggleNav(): void {
     if (this.isExpanded) {

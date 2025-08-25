@@ -1,12 +1,12 @@
 <div class="relative w-full h-screen bg-neutral-200 overflow-y-hidden">
   <!-- Header fijo arriba -->
   <div class="fixed top-0 left-0 right-0 h-20 z-50" id="header-container">
-    <app-desktop-header (sidebarToggled)="onSidebarToggled($event)" />
+    <app-desktop-header />
   </div>
 
   <!-- Nav fijo a la izquierda -->
   <div class="fixed top-20 left-0 bottom-0 w-20 z-40" id="nav-container">
-    <app-desktop-nav />
+    <app-desktop-nav (sidebarToggled)="onSidebarToggled($event)" />
   </div>
 
   <!-- Contenido principal compensando espacio -->

@@ -14,9 +14,8 @@ export class App {
 
   isNavOpen = false;
 
-  onSidebarToggled(isOpen: Event): void {
-    this.isNavOpen = isOpen.isTrusted;
-    console.log('Sidebar abierto:', this.isNavOpen);
-    // Aquí puedes ajustar el contenido principal según el sidebar
+  onSidebarToggled(isOpen: boolean): void {
+    this.isNavOpen = isOpen;
+    console.log('Sidebar abierto:', isOpen);
   }
 }
