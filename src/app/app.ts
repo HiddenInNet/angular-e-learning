@@ -1,7 +1,8 @@
-import { Component, signal } from '@angular/core';
+import { Component, inject, signal } from '@angular/core';
 import { RouterOutlet } from '@angular/router';
 import { DesktopHeader } from './common/components/desktop-header/desktop-header';
 import { DesktopNav } from './common/components/desktop-nav/desktop-nav';
+import { DesktopNavService } from './common/components/desktop-nav/services/desktop-nav.service';
 
 @Component({
   selector: 'app-root',
@@ -11,11 +12,9 @@ import { DesktopNav } from './common/components/desktop-nav/desktop-nav';
 })
 export class App {
   protected readonly title = signal('e-learning');
+  readonly _desktopNavService = inject(DesktopNavService);
 
-  isNavOpen = false;
-
-  onSidebarToggled(isOpen: boolean): void {
-    this.isNavOpen = isOpen;
-    console.log('Sidebar abierto:', isOpen);
+  get isNavOpen(): boolean {
+    return this._desktopNavService.isNavOpen();
   }
 }

@@ -1,7 +1,8 @@
-import { Component, ElementRef, HostListener, inject, output } from '@angular/core';
+import { Component, ElementRef, HostListener, inject } from '@angular/core';
 import { MatIconModule } from '@angular/material/icon';
 import { MatBadgeModule } from '@angular/material/badge';
 import { RouterLink } from '@angular/router';
+import { DesktopNavService } from './services/desktop-nav.service';
 
 @Component({
   selector: 'app-desktop-nav',
@@ -11,9 +12,10 @@ import { RouterLink } from '@angular/router';
 })
 export class DesktopNav {
   private readonly eRef = inject(ElementRef);
+  private readonly _desktopNavService = inject(DesktopNavService);
+
   isExpanded = false;
   showLabels = false;
-  readonly sidebarToggled = output<boolean>();
 
   toggleNav(): void {
     if (this.isExpanded) {
@@ -25,7 +27,7 @@ export class DesktopNav {
         this.showLabels = true;
       }, 300);
     }
-    this.sidebarToggled.emit(this.isExpanded);
+    this._desktopNavService.setNav(this.isExpanded);
   }
 
   // Detectar click en cualquier parte del documento
@@ -34,7 +36,7 @@ export class DesktopNav {
     if (this.isExpanded && !this.eRef.nativeElement.contains(event.target)) {
       this.isExpanded = false;
       this.showLabels = false;
-      this.sidebarToggled.emit(this.isExpanded);
+      this._desktopNavService.setNav(this.isExpanded);
     }
   }
 

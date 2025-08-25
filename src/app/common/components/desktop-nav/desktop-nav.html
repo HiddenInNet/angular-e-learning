@@ -8,7 +8,11 @@
     type="button"
     (click)="toggleNav()"
   >
-    <mat-icon style="color: #262626" [svgIcon]="isExpanded ? 'nav:arrow-back' : 'nav:menu-bread'" />
+    <mat-icon
+      aria-hidden="false"
+      style="color: #262626"
+      [svgIcon]="isExpanded ? 'nav:arrow-back' : 'nav:menu-bread'"
+    />
   </button>
 
   <hr class="text-neutral-600" />
@@ -22,6 +26,7 @@
   >
     <!-- Icono con badge -->
     <mat-icon
+      aria-hidden="false"
       matBadgeOverlap="true"
       style="color: #262626; width: 22px; height: 22px"
       [matBadge]="navTab.notifications"

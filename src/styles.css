@@ -1,15 +1,32 @@
 /* You can add global styles to this file, and also import other style files */
 @import 'tailwindcss';
 
-@theme {
-  --color-header-bg: #1b73e8;
-}
-
 html,
 body {
   height: 100%;
+  overflow: hidden; /* desactiva el scroll del body */
 }
 body {
   margin: 0;
   font-family: Roboto, 'Helvetica Neue', sans-serif;
+}
+
+@theme {
+  --color-header-bg: #1b73e8;
+}
+
+@layer utilities {
+  .scrollbar::-webkit-scrollbar {
+    width: 10px;
+  }
+  .scrollbar::-webkit-scrollbar-track {
+    background: #e5e5e5; /* bg-neutral-200 */
+  }
+  .scrollbar::-webkit-scrollbar-thumb {
+    background: #737373; /* bg-neutral-500 */
+    border-radius: 0; /* sin bordes redondeados */
+  }
+  .scrollbar::-webkit-scrollbar-thumb:hover {
+    background: #525252; /* hover:bg-neutral-600 */
+  }
 }
